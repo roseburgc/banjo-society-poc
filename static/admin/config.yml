@@ -8,7 +8,7 @@
 
 backend:
   name: github
-  repo: YOUR-ORG/YOUR-REPO      # <-- e.g. old-time-banjo-society/website
+  repo: roseburgc/banjo-society-poc
   branch: main
 
 # Where uploaded images land.
