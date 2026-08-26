@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <article class="prose">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ .Content }}
+    {{ with .Pages }}
+      <ul class="page-list">
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Description }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </article>
+{{ end }}

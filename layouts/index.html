@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <section class="hero">
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ .Site.Params.description }}</p>
+    <p><a class="btn" href="{{ "/get-involved" | relURL }}">Become a member</a>
+       <a class="btn btn-ghost" href="{{ "/method" | relURL }}">Learn the method</a></p>
+  </section>
+  <section class="prose">
+    {{ .Content }}
+  </section>
+  <section class="cards">
+    {{ range where .Site.RegularPages "Params.featured" true }}
+      <article class="card">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description }}</p>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

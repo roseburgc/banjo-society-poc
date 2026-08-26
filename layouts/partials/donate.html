@@ -1,0 +1,15 @@
+{{/*
+  ── MOCK DONATE WIDGET ──────────────────────────────────────────────────────
+  This stands in for the third-party donation snippet on the current site
+  (the small circular pop-up). It is intentionally self-contained so the POC
+  works with zero external dependencies.
+
+  IN PRODUCTION: delete everything below and paste the real donation provider's
+  <script> tag here instead. Because it is client-side, it will behave exactly
+  the same under Hugo/Cloudflare as it does today on WordPress/BlueHost.
+*/}}
+<div id="donate-config"
+     data-headline="{{ .Site.Params.donateHeadline }}"
+     data-blurb="{{ .Site.Params.donateBlurb }}"
+     data-label="{{ .Site.Params.donateLabel }}"></div>
+<script src="{{ "js/donate.js" | relURL }}" defer></script>

@@ -1,0 +1,42 @@
+# ── CloudCannon configuration ───────────────────────────────────────────────
+# CloudCannon is the turnkey (paid) editor alternative to Sveltia. It connects
+# to this same repo, gives editors a polished visual UI, and commits back to
+# GitHub — which triggers the same Cloudflare rebuild. This file tells
+# CloudCannon which files are editable and how.
+#
+# You do NOT need both editors. Ship with Sveltia (free) or switch on
+# CloudCannon (paid) — the site, repo, and hosting are identical either way.
+
+source: ""
+collections_config:
+  pages:
+    path: content
+    name: Pages
+    icon: description
+    filter:
+      base: strict
+    _enabled_editors:
+      - content   # the friendly rich-text/WYSIWYG editor for non-technical staff
+
+# Fields editors can set, with friendly labels.
+_inputs:
+  title:
+    type: text
+    comment: The page heading.
+  description:
+    type: textarea
+    comment: One-line summary used for SEO and home-page cards.
+  featured:
+    type: switch
+    comment: Show this page as a card on the home page.
+
+# Let editors preview without seeing raw front matter.
+_editables:
+  content:
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    image: true
+    table: true

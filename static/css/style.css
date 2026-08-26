@@ -1,0 +1,78 @@
+/* Old-Time Banjo Society — POC stylesheet. Warm, woody, "old-time" palette. */
+:root {
+  --ink: #2b2018;
+  --paper: #faf6ef;
+  --accent: #8a4b2f;      /* walnut */
+  --accent-2: #c8892f;    /* aged brass */
+  --muted: #6b5d4f;
+  --line: #e4dccf;
+  --max: 60rem;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 17px/1.65 Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+a { color: var(--accent); }
+a:hover { color: var(--accent-2); }
+
+/* Header / nav */
+.site-header { border-bottom: 2px solid var(--line); background: #fff; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; padding-top: .9rem; padding-bottom: .9rem; }
+.brand { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.site-nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+.site-nav a { text-decoration: none; font-size: .95rem; }
+.site-nav a.active { border-bottom: 2px solid var(--accent-2); }
+
+/* Hero */
+.hero { padding: 3rem 0 1.5rem; }
+.hero h1 { font-size: 2.4rem; margin: 0 0 .5rem; }
+.lede { font-size: 1.2rem; color: var(--muted); }
+.btn {
+  display: inline-block; margin: .5rem .4rem 0 0; padding: .6rem 1.1rem;
+  background: var(--accent); color: #fff; text-decoration: none; border-radius: 6px;
+}
+.btn-ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+/* Content */
+.prose { padding: 1rem 0 2.5rem; }
+.prose h2 { margin-top: 2rem; border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+.prose img { max-width: 100%; height: auto; }
+.page-list { padding-left: 1.1rem; }
+
+/* Home cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.25rem; padding-bottom: 3rem; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1.1rem 1.25rem; }
+.card h3 { margin: 0 0 .35rem; }
+
+/* Footer */
+.site-footer { border-top: 2px solid var(--line); background: #fff; padding: 1.5rem 0; margin-top: 2rem; }
+.site-footer p { margin: .2rem 0; }
+.muted { color: var(--muted); font-size: .9rem; }
+
+/* Mock donate widget */
+.donate-fab {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 50;
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--accent-2); color: #fff; border: none; cursor: pointer;
+  font: 700 .8rem/1 Georgia, serif; box-shadow: 0 4px 14px rgba(0,0,0,.28);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  transition: transform .15s ease;
+}
+.donate-fab:hover { transform: scale(1.06); }
+.donate-pop {
+  position: fixed; right: 1.25rem; bottom: 6.25rem; z-index: 50;
+  width: min(20rem, calc(100vw - 2.5rem));
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 1.1rem 1.2rem;
+}
+.donate-pop[hidden] { display: none; }
+.donate-pop h4 { margin: 0 0 .4rem; }
+.donate-pop p { margin: 0 0 .8rem; font-size: .95rem; color: var(--muted); }
+.donate-pop .btn { width: 100%; text-align: center; margin: 0; }
+.donate-pop .mock-note { font-size: .72rem; color: var(--muted); margin-top: .6rem; font-style: italic; }
+.donate-pop .close { position: absolute; top: .4rem; right: .6rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--muted); }

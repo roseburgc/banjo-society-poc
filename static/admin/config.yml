@@ -1,0 +1,78 @@
+# ── Sveltia CMS configuration ───────────────────────────────────────────────
+# Defines what a non-technical editor can change. Sveltia is Decap-compatible,
+# so this same file works with Decap CMS if you ever switch.
+#
+# BEFORE GOING LIVE: set backend.repo to the institution's org/repo, e.g.
+#   repo: old-time-banjo-society/website
+# and connect a GitHub OAuth app (or use Sveltia's GitHub sign-in). See README.
+
+backend:
+  name: github
+  repo: YOUR-ORG/YOUR-REPO      # <-- e.g. old-time-banjo-society/website
+  branch: main
+
+# Where uploaded images land.
+media_folder: "static/images"
+public_folder: "/images"
+
+# Nicer editing UX
+editor:
+  preview: false
+
+collections:
+  # Standalone pages (About, Get Involved, Contact) — one file each.
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home"
+        file: "content/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "about"
+        label: "About & History"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Show on home", name: "featured", widget: "boolean", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "getinvolved"
+        label: "Get Involved"
+        file: "content/get-involved.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Show on home", name: "featured", widget: "boolean", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "contact"
+        label: "Contact"
+        file: "content/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # Section landing pages (Method, Programs) — also single files here, but
+  # modelled as a folder collection would let editors add sub-pages later.
+  - name: "sections"
+    label: "Sections"
+    files:
+      - name: "method"
+        label: "Method"
+        file: "content/method/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Show on home", name: "featured", widget: "boolean", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "programs"
+        label: "Programs"
+        file: "content/programs/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Show on home", name: "featured", widget: "boolean", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }

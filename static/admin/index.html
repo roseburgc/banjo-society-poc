@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Content Editor · Old-Time Banjo Society</title>
+  </head>
+  <body>
+    <!--
+      Sveltia CMS — the free, open-source editor layer. This single page IS the
+      admin UI; it reads /admin/config.yml and commits edits straight to the
+      GitHub repo, which triggers a Cloudflare rebuild. The editor logs in with
+      GitHub (or an SSO/OAuth backend) and never touches code.
+
+      Loaded from CDN here for POC simplicity. For a fully self-contained
+      production build you can vendor sveltia-cms.js into the repo instead.
+    -->
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  </body>
+</html>

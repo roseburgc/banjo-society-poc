@@ -1,0 +1,51 @@
+# ── Hugo site configuration ────────────────────────────────────────────────
+# POC: Old-Time Banjo Society. Self-contained custom theme (layouts/), no
+# external theme dependency — maximizes longevity and reproducible builds.
+
+baseURL = "https://example.pages.dev/"   # replaced by the real domain at cutover
+languageCode = "en-us"
+title = "Old-Time Banjo Society"
+enableRobotsTXT = true
+
+# Pin nothing Ruby/Node here — Hugo is a single binary. Build version is pinned
+# in Cloudflare via the HUGO_VERSION env var (see README, Phase 3).
+
+[params]
+  description = "A nonprofit dedicated to preserving and teaching traditional old-time, clawhammer, and frailing banjo."
+  # Mock donate widget config. In production, delete this block and paste the
+  # real donation provider's <script> snippet into layouts/partials/donate.html.
+  donateLabel = "Donate"
+  donateHeadline = "Keep the old-time tradition alive"
+  donateBlurb = "Your gift funds free workshops, archival recordings, and scholarships for young players."
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+  [[menu.main]]
+    name = "About & History"
+    pageRef = "/about"
+    weight = 20
+  [[menu.main]]
+    name = "Method"
+    pageRef = "/method"
+    weight = 30
+  [[menu.main]]
+    name = "Programs"
+    pageRef = "/programs"
+    weight = 40
+  [[menu.main]]
+    name = "Get Involved"
+    pageRef = "/get-involved"
+    weight = 50
+  [[menu.main]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 60
+
+[markup.goldmark.renderer]
+  unsafe = true   # allow inline HTML in Markdown (needed for embeds)
+
+[build]
+  writeStats = false
