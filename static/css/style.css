@@ -30,6 +30,7 @@ a:hover { color: var(--accent-2); }
 
 /* Hero */
 .hero { padding: 3rem 0 1.5rem; }
+.hero-image { display: block; width: 100%; max-height: 340px; object-fit: cover; border-radius: 10px; margin: 0 0 1.25rem; }
 .hero h1 { font-size: 2.4rem; margin: 0 0 .5rem; }
 .lede { font-size: 1.2rem; color: var(--muted); }
 .btn {

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-label="Old-time banjo banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a4b2f"/>
+      <stop offset="1" stop-color="#c8892f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <g transform="translate(900,210)" fill="none" stroke="#faf6ef" stroke-width="6" opacity="0.92">
+    <rect x="-26" y="-250" width="52" height="150" rx="10" fill="#2b2018" fill-opacity="0.30" stroke-width="4"/>
+    <circle cx="0" cy="0" r="120" fill="#2b2018" fill-opacity="0.22"/>
+    <circle cx="0" cy="0" r="120"/>
+    <circle cx="0" cy="0" r="88" stroke-width="3"/>
+    <line x1="-14" y1="-244" x2="-14" y2="112"/>
+    <line x1="0" y1="-244" x2="0" y2="120"/>
+    <line x1="14" y1="-244" x2="14" y2="112"/>
+  </g>
+  <text x="80" y="195" font-family="Georgia, 'Times New Roman', serif" font-size="66" fill="#faf6ef" font-weight="bold">Old-Time Banjo</text>
+  <text x="82" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#faf6ef" opacity="0.92">clawhammer · frailing · tradition</text>
+</svg>

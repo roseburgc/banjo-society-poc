@@ -8,8 +8,9 @@
   <script> tag here instead. Because it is client-side, it will behave exactly
   the same under Hugo/Cloudflare as it does today on WordPress/BlueHost.
 */}}
+{{ $d := hugo.Data.settings.donate }}
 <div id="donate-config"
-     data-headline="{{ .Site.Params.donateHeadline }}"
-     data-blurb="{{ .Site.Params.donateBlurb }}"
-     data-label="{{ .Site.Params.donateLabel }}"></div>
+     data-headline="{{ $d.headline }}"
+     data-blurb="{{ $d.blurb }}"
+     data-label="{{ $d.label }}"></div>
 <script src="{{ "js/donate.js" | relURL }}" defer></script>

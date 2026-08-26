@@ -30,6 +30,7 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "Hero image", name: "hero_image", widget: "image", required: false }
           - { label: "Body", name: "body", widget: "markdown" }
       - name: "about"
         label: "About & History"
@@ -76,3 +77,36 @@ collections:
           - { label: "Description (SEO)", name: "description", widget: "text" }
           - { label: "Show on home", name: "featured", widget: "boolean", required: false }
           - { label: "Body", name: "body", widget: "markdown" }
+
+  # Global site settings — editor-managed values lifted out of templates.
+  # Demonstrates: footer/contact editing, and live theme color configuration.
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "global"
+        label: "Global"
+        file: "data/settings.yaml"
+        fields:
+          - { label: "Organization name", name: "org_name", widget: "string" }
+          - label: "Footer / contact"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Mailing address", name: "address", widget: "string", required: false }
+              - { label: "Monthly jam", name: "jam", widget: "string", required: false }
+          - label: "Donate widget"
+            name: "donate"
+            widget: "object"
+            fields:
+              - { label: "Button label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Blurb", name: "blurb", widget: "text" }
+          - label: "Theme colors"
+            name: "theme"
+            widget: "object"
+            fields:
+              - { label: "Accent (walnut)", name: "accent", widget: "color" }
+              - { label: "Accent 2 (brass)", name: "accent2", widget: "color" }
+              - { label: "Text (ink)", name: "ink", widget: "color" }
+              - { label: "Background (paper)", name: "paper", widget: "color" }

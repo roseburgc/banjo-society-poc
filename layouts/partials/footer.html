@@ -1,6 +1,12 @@
+{{ $s := hugo.Data.settings }}
 <footer class="site-footer">
   <div class="container">
-    <p>{{ .Site.Title }} · A fictional 501(c)(3) nonprofit (POC mock content).</p>
-    <p class="muted">© {{ now.Year }} {{ .Site.Title }}. Built with Hugo · hosted on Cloudflare Pages · edited via Sveltia/CloudCannon.</p>
+    <p><strong>{{ $s.org_name | default .Site.Title }}</strong> · A fictional 501(c)(3) nonprofit (POC mock content).</p>
+    <p class="muted">
+      {{ with $s.footer.email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+      {{ with $s.footer.address }} · {{ . }}{{ end }}
+    </p>
+    {{ with $s.footer.jam }}<p class="muted">Monthly jam: {{ . }}</p>{{ end }}
+    <p class="muted">© {{ now.Year }} {{ $s.org_name | default .Site.Title }}. Built with Hugo · Cloudflare Pages · edited via Sveltia.</p>
   </div>
 </footer>

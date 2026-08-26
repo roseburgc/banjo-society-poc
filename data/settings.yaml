@@ -1,0 +1,23 @@
+# ── Site Settings ────────────────────────────────────────────────────────────
+# Global, editor-managed values lifted OUT of templates so a non-technical
+# editor can change them via the CMS "Site Settings" panel — without touching
+# any layout, CSS, or config. Templates read these via site.Data.settings.
+org_name: "Old-Time Banjo Society"
+
+footer:
+  email: "hello@example.org"
+  address: "P.O. Box 000, Anytown, USA"
+  jam: "Second Saturday, 2–5pm · community hall"
+
+donate:
+  label: "Donate"
+  headline: "Keep the old-time tradition alive"
+  blurb: "Your gift funds free workshops, archival recordings, and scholarships for young players."
+
+# Theme colors → injected as CSS variables in <head>, overriding stylesheet
+# defaults. Editable via color-picker widgets in the CMS.
+theme:
+  accent: "#8a4b2f"   # walnut
+  accent2: "#c8892f"  # aged brass
+  ink: "#2b2018"      # text
+  paper: "#faf6ef"    # background

@@ -12,11 +12,8 @@ enableRobotsTXT = true
 
 [params]
   description = "A nonprofit dedicated to preserving and teaching traditional old-time, clawhammer, and frailing banjo."
-  # Mock donate widget config. In production, delete this block and paste the
-  # real donation provider's <script> snippet into layouts/partials/donate.html.
-  donateLabel = "Donate"
-  donateHeadline = "Keep the old-time tradition alive"
-  donateBlurb = "Your gift funds free workshops, archival recordings, and scholarships for young players."
+  # Donate copy, footer/contact, and theme colors now live in data/settings.yaml
+  # (editor-managed via the CMS "Site Settings" panel).
 
 [menu]
   [[menu.main]]
