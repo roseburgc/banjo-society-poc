@@ -3,7 +3,7 @@
 # external theme dependency — maximizes longevity and reproducible builds.
 
 baseURL = "https://example.pages.dev/"   # replaced by the real domain at cutover
-languageCode = "en-us"
+defaultContentLanguage = "en"
 title = "Old-Time Banjo Society"
 enableRobotsTXT = true
 
