@@ -23,6 +23,11 @@ the framework can be evaluated before any commitment.
 **The flow:** editor edits in Sveltia/CloudCannon → commits to GitHub → Cloudflare
 rebuilds and deploys automatically.
 
+**Content format:** Markdown by default. If richer, structured authoring is
+wanted later (admonitions, cross-references, footnotes, directives — the things
+reStructuredText is known for), the content can move to **MyST Markdown**, which
+provides that power in Markdown syntax and keeps the same Git-based CMS tooling.
+
 ## How this addresses the institution's requirements
 
 - **Longevity** — content is plain Markdown in Git; if any single vendor
@@ -74,9 +79,76 @@ The donate popup (circular button, bottom-right) is a **mock** — see
 `static/js/donate.js`. In production it is replaced by the real donation
 provider's `<script>` snippet in `layouts/partials/donate.html`.
 
+### See the editor locally (no auth, ~20 seconds)
+
+Sveltia's `test-repo` backend loads the editor UI with no GitHub login — ideal
+for a quick look or a proposal demo:
+
+```bash
+cd ~/poc-hugo-nonprofit
+sed -i '' 's/^  name: github/  name: test-repo/' static/admin/config.yml
+hugo server        # open http://localhost:1313/admin/  → click "Login"
+git checkout -- static/admin/config.yml   # restore the real backend when done
+```
+
+You'll see the **Pages** and **Sections** collections and the field form
+(Title, Description, Show-on-home, rich-text Body). `localhost` satisfies
+Sveltia's HTTPS/localhost security guard automatically.
+
 ---
 
-## Going live — cloud setup steps
+## Deploy the POC today (personal GitHub account)
+
+Fast path to get the POC live on **your personal** GitHub + Cloudflare (the
+institution's org comes later — see the next section). ~20 minutes.
+
+### 1. Push to your personal GitHub
+Create a new **empty** repo at <https://github.com/new> (e.g. `banjo-society-poc`
+— no README/license; this repo already has them), then:
+
+```bash
+cd ~/poc-hugo-nonprofit
+git remote add origin git@github.com:YOUR-USER/banjo-society-poc.git   # or https://…
+git push -u origin main
+```
+
+### 2. Deploy to Cloudflare Pages
+1. Sign in to Cloudflare (personal email) → **Workers & Pages → Create → Pages → Connect to Git**.
+2. Authorize the Cloudflare GitHub App on **your account**, pick the repo.
+3. Build settings:
+   - Framework preset: **Hugo**
+   - Build command: `hugo`
+   - Output directory: `public`
+   - Environment variable: `HUGO_VERSION` = `0.165.0`
+4. **Save and Deploy** → you get a live `https://<project>.pages.dev` URL.
+
+The public site (incl. the mock donate popup) works immediately. The `/admin/`
+editor page loads too — deploying over HTTPS satisfies Sveltia's security guard —
+but logging in needs one more step:
+
+### 3. Connect the Sveltia editor (GitHub OAuth) — one-time
+Sveltia needs an OAuth handshake to commit to GitHub. Checklist:
+
+1. **Create a GitHub OAuth App:** GitHub → *Settings → Developer settings → OAuth Apps → New OAuth App*.
+   - Homepage URL: your `pages.dev` URL
+   - Authorization callback URL: your auth handler's URL (see step 2)
+   - Note the **Client ID**; generate a **Client Secret**.
+2. **Stand up the OAuth handler** (holds the Client Secret — never in the repo). Pick one:
+   - **Cloudflare Worker (recommended — you're already on Cloudflare):** deploy Sveltia's official auth Worker (`wrangler`), set the Client ID/Secret as Worker secrets. Its URL is the callback from step 1.
+   - **Hosted authenticator:** point the OAuth App at a hosted service instead of your own Worker — simpler, but depends on a third-party staying up.
+3. **Wire the config:** in `static/admin/config.yml` set `backend.repo: YOUR-USER/banjo-society-poc`, and `backend.base_url` to your auth handler (per the Sveltia GitHub-backend docs). Commit + push.
+4. Open `https://<project>.pages.dev/admin/` → **Sign in with GitHub** → your six
+   pages appear, fully editable. Save → commits to GitHub → Cloudflare rebuilds (~30s).
+
+> **Editor access needs a GitHub account.** With the GitHub backend, each editor
+> signs in as a GitHub user with write access to the repo. To give a
+> non-technical editor access **without** a GitHub account, use a hosted CMS that
+> brokers the commits — **CloudCannon** (email invite) or **TinaCMS + Tina
+> Cloud**. (Avoid Netlify Identity + Git Gateway — deprecated.)
+
+---
+
+## Going live — production (institution-owned)
 
 ### 1. GitHub (institution-owned)
 1. Create a **GitHub Organization** for the institution (not a personal repo).
@@ -91,7 +163,7 @@ provider's `<script>` snippet in `layouts/partials/donate.html`.
    - Framework preset: **Hugo**
    - Build command: `hugo`
    - Output directory: `public`
-   - Environment variable: `HUGO_VERSION` = `0.140.0` (pin for reproducible builds)
+   - Environment variable: `HUGO_VERSION` = `0.165.0` (pin for reproducible builds)
 4. Deploy → verify on the `*.pages.dev` preview URL.
 
 ### 3. Domain cutover
@@ -105,6 +177,11 @@ provider's `<script>` snippet in `layouts/partials/donate.html`.
   org/repo, connect GitHub sign-in, and the editor uses `/admin/`.
 - **CloudCannon (paid):** connect CloudCannon to the org repo; it reads
   `cloudcannon.config.yml`. Hand the editor a login — done.
+
+**Choosing:** if the institution's editor(s) will have GitHub accounts, Sveltia
+(free) is enough. If they should edit **without** a GitHub account (email invite
+only), that's the trigger for CloudCannon — it brokers the commits so editors
+never touch GitHub.
 
 ### 5. Decommission
 After a verification window with the new site live and correct, cancel BlueHost.
