@@ -102,11 +102,17 @@ collections:
               - { label: "Button label", name: "label", widget: "string" }
               - { label: "Headline", name: "headline", widget: "string" }
               - { label: "Blurb", name: "blurb", widget: "text" }
-          - label: "Theme colors"
+          - label: "Theme"
             name: "theme"
             widget: "object"
             fields:
-              - { label: "Accent (walnut)", name: "accent", widget: "color" }
-              - { label: "Accent 2 (brass)", name: "accent2", widget: "color" }
-              - { label: "Text (ink)", name: "ink", widget: "color" }
-              - { label: "Background (paper)", name: "paper", widget: "color" }
+              - label: "Color preset"
+                name: "preset"
+                widget: "select"
+                default: "clay-cream"
+                hint: "Curated, accessibility-checked palettes — pick one."
+                options:
+                  - { label: "Clay & Cream (warm, default)", value: "clay-cream" }
+                  - { label: "Ink & Paper (editorial)", value: "ink-paper" }
+                  - { label: "Forest (deep green)", value: "forest" }
+                  - { label: "Slate (cool blue)", value: "slate" }

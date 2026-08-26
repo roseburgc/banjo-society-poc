@@ -1,0 +1,28 @@
+# ── Curated theme presets ────────────────────────────────────────────────────
+# Vetted, accessibility-checked palettes. The editor picks ONE by name in Site
+# Settings; templates look it up here and inject the CSS variables. This is the
+# guardrailed alternative to open color pickers — an editor can't break contrast
+# or the brand, only choose among pre-designed sets.
+clay-cream:
+  accent: "#A64B2A"   # clay
+  accent2: "#C2913F"  # muted gold
+  ink: "#23201B"
+  paper: "#FAF7F1"
+
+ink-paper:
+  accent: "#A6392B"   # barn red
+  accent2: "#7A736A"
+  ink: "#1A1918"
+  paper: "#FBFAF8"
+
+forest:
+  accent: "#3E6B4F"   # deep green
+  accent2: "#B0873C"
+  ink: "#1E241E"
+  paper: "#F5F4EC"
+
+slate:
+  accent: "#3B5A78"   # slate blue
+  accent2: "#A8927A"
+  ink: "#1E242B"
+  paper: "#F6F7F6"

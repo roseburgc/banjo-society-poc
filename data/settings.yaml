@@ -17,7 +17,6 @@ donate:
 # Theme colors → injected as CSS variables in <head>, overriding stylesheet
 # defaults. Editable via color-picker widgets in the CMS.
 theme:
-  accent: "#A64B2A"   # clay
-  accent2: "#C2913F"  # muted gold (used sparingly)
-  ink: "#23201B"      # warm near-black text
-  paper: "#FAF7F1"    # warm off-white background
+  # Curated palette — one of: clay-cream, ink-paper, forest, slate
+  # (defined in data/theme_presets.yaml). Editable in the CMS as a dropdown.
+  preset: "clay-cream"

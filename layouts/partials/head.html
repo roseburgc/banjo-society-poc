@@ -4,13 +4,15 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <link rel="preload" href="{{ "fonts/fraunces-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-{{/* Theme colors from Site Settings → override stylesheet defaults (editor-configurable). */}}
-{{ with hugo.Data.settings.theme }}
+{{/* Curated theme preset from Site Settings → CSS variables (guardrailed). */}}
+{{ $key := "clay-cream" }}
+{{ with hugo.Data.settings.theme }}{{ with .preset }}{{ $key = . }}{{ end }}{{ end }}
+{{ with index hugo.Data.theme_presets $key }}
 <style>:root{
-{{ with .ink }}  --ink: {{ . }};{{ end }}
-{{ with .paper }}  --paper: {{ . }};{{ end }}
-{{ with .accent }}  --accent: {{ . }};{{ end }}
-{{ with .accent2 }}  --accent-2: {{ . }};{{ end }}
+  --ink: {{ .ink }};
+  --paper: {{ .paper }};
+  --accent: {{ .accent }};
+  --accent-2: {{ .accent2 }};
 }</style>
 {{ end }}
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪕</text></svg>">

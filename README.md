@@ -70,20 +70,60 @@ can't accidentally break contrast or the brand.
 
 ---
 
+## Design system ("Modern Heritage")
+
+Modern-minimal structure with a warm heritage palette. Everything is a token, so
+the look is consistent and easy to retheme.
+
+- **Type:** *Fraunces* (variable serif, SIL OFL, **self-hosted** in `static/fonts/`
+  and preloaded) for display; the system sans stack for body. No Google Fonts or
+  other external dependency.
+- **Color:** four CSS variables (`--ink`, `--paper`, `--accent`, `--accent-2`)
+  driven by a curated theme preset (below).
+- **Spacing:** a fixed scale (`--s-1` … `--s-6`) for consistent rhythm.
+- **Widths:** ~42rem prose measure; ~66rem for header / hero / footer.
+- **Components:** borderless cards with a hairline accent tick, hairline tables,
+  sticky blurred header, restrained buttons (solid accent + ghost).
+- **Accessibility:** visible focus rings, `prefers-reduced-motion` honored,
+  preset palettes contrast-checked.
+
+### Theme presets
+The editor picks one palette from a dropdown in **Site Settings → Theme**; the
+choice is looked up in `data/theme_presets.yaml` and injected as CSS variables.
+This is the **guardrailed** alternative to open color pickers — an editor can
+switch the entire look but cannot break contrast or the brand.
+
+| Preset | Feel |
+|--------|------|
+| **Clay & Cream** (default) | Warm, earthy, heritage |
+| **Ink & Paper** | Editorial, near-monochrome + barn red |
+| **Forest** | Deep green, natural |
+| **Slate** | Cool blue, modern |
+
+*(Open color pickers remain possible if full freedom is ever wanted — swap the
+`select` widget back for `color` widgets in `config.yml`.)*
+
+---
+
 ## Repository layout
 
 ```
 poc-hugo-nonprofit/
-├── hugo.toml                 # site config, nav menu, donate widget params
+├── hugo.toml                 # site config + nav menu
 ├── content/                  # the editable content (Markdown)
-│   ├── _index.md             #   home
+│   ├── _index.md             #   home (+ hero_image front matter)
 │   ├── about.md  contact.md  get-involved.md
 │   ├── method/_index.md      #   section pages
 │   └── programs/_index.md
+├── data/
+│   ├── settings.yaml         # editor-managed globals (footer, donate, theme choice)
+│   └── theme_presets.yaml    # curated, vetted color palettes
 ├── layouts/                  # self-contained theme (no external dependency)
 ├── static/
-│   ├── css/style.css
+│   ├── css/style.css         # Modern Heritage design system
 │   ├── js/donate.js          # MOCK donate popup (replaced by real snippet)
+│   ├── fonts/                # self-hosted Fraunces variable font (SIL OFL)
+│   ├── images/               # hero + media library uploads
 │   └── admin/                # Sveltia CMS editor (index.html + config.yml)
 ├── cloudcannon.config.yml    # CloudCannon editor config (paid alternative)
 ├── .gitignore
