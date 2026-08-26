@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<link rel="preload" href="{{ "fonts/fraunces-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 {{/* Theme colors from Site Settings → override stylesheet defaults (editor-configurable). */}}
 {{ with hugo.Data.settings.theme }}

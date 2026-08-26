@@ -17,7 +17,7 @@ donate:
 # Theme colors → injected as CSS variables in <head>, overriding stylesheet
 # defaults. Editable via color-picker widgets in the CMS.
 theme:
-  accent: "#8a4b2f"   # walnut
-  accent2: "#c8892f"  # aged brass
-  ink: "#2b2018"      # text
-  paper: "#faf6ef"    # background
+  accent: "#A64B2A"   # clay
+  accent2: "#C2913F"  # muted gold (used sparingly)
+  ink: "#23201B"      # warm near-black text
+  paper: "#FAF7F1"    # warm off-white background
