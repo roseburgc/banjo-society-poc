@@ -51,9 +51,10 @@ criteria (the "done" checkpoint) that gates the next phase.
   HTTrack).
 - Record the existing URL structure (to preserve or redirect for SEO).
 - Collect all assets (images, documents) and the third-party donate snippet.
-- **Verify the domain's actual registrar via WHOIS** and locate its login. Note:
-  a ~$224/yr bill from "American Domain Services" is far above market and may be a
-  renewal solicitation rather than the real registrar. Confirm before paying.
+- Locate the domain login. WHOIS confirms the registrar is **BlueHost** (same
+  vendor as hosting). The separate **$224/yr "American Domain Services" invoice is
+  a scam solicitation, not a real renewal** (BlueHost is the registrar); do not
+  pay it.
 
 **Exit criteria:** complete page list, asset archive, URL map, and confirmed
 registrar access.
@@ -72,7 +73,10 @@ registrar access.
 
 - Create the **GitHub Organization** owned by [Institution] (not a personal
   account); add a **second owner** to avoid single-person lock-in.
-- Apply for **GitHub for Nonprofits** (free Team plan for verified 501(c)(3)s).
+- Create the GitHub repo. Note: **GitHub for Nonprofits excludes religious
+  organisations**, so a church is not eligible for the free Team plan. Use GitHub
+  **Free** ($0), which is sufficient; Team ($4/user/mo) is optional if
+  branch-protection governance is later wanted.
 - Create the **Cloudflare account** under an institutional/role email.
 - Decide the tier (see *Hosting & Platform Tiers*).
 
@@ -103,10 +107,10 @@ documented.
 **Owner:** Administrator · **Effort:** ~0.5 day + monitoring
 
 - Move the domain's DNS to Cloudflare (update nameservers at the registrar).
-- **Transfer the domain registration to an at-cost registrar** (Cloudflare
-  Registrar, ~$8.50/yr for .org): unlock the domain at the current registrar,
-  obtain the EPP/auth code, and initiate the transfer. This ends the ~$224/yr
-  bill and consolidates DNS + registration in one place.
+- **Transfer the domain registration from BlueHost to an at-cost registrar**
+  (Cloudflare Registrar, ~$10/yr for a .com): unlock the domain at BlueHost,
+  obtain the EPP/auth code, and initiate the transfer. This consolidates DNS +
+  registration in one place at wholesale cost.
 - Add the custom domain in Cloudflare Pages (automatic, free SSL).
 - Add redirects (`_redirects`) for any changed URLs to preserve SEO.
 - **Lower the DNS TTL 24h ahead**, cut over, and monitor.

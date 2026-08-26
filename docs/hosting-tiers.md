@@ -36,11 +36,13 @@ GitHub stores the website's content and history (and is its backup).
 | **Team** | $4 / user / mo | Branch protection & **required reviews** on private repos, CODEOWNERS, 3,000 Actions min/mo | Web/email support |
 | **Enterprise** | from $21 / user / mo | SSO/SAML, audit-log API, 50,000 Actions min/mo | 24/7 premium options |
 
-**Nonprofit advantage:** verified 501(c)(3) organisations get the **Team plan
-free** through *GitHub for Nonprofits* (or 25% off Enterprise). So [Institution]
-can have Team-tier **governance features (required reviews, protected
-branches) at no cost**. This is a strong, easy credibility point: paid-tier
-controls, funded by the nonprofit program.
+**Nonprofit discount (note the exclusion):** verified 501(c)(3) organisations can
+get the **Team plan free** through *GitHub for Nonprofits* (or 25% off
+Enterprise). **However, GitHub excludes organisations with religious
+affiliation**, so a church such as [Institution] is **not eligible.** That is not
+a problem here: GitHub **Free** ($0) is enough for this site (public repo,
+one or two editors), and Team is an optional **$4/user/mo** only if
+branch-protection governance is later wanted.
 
 ---
 
@@ -68,7 +70,7 @@ e-commerce/SaaS).
 
 | Component | Tier | Cost |
 |-----------|------|------|
-| GitHub | Team (free via Nonprofits) | $0 |
+| GitHub | Free | $0 |
 | Cloudflare | Pages Free | $0 |
 | **Total** | | **$0 / mo** |
 
@@ -79,14 +81,13 @@ support SLA, no managed WAF, community-only support.
 
 | Component | Tier | Cost |
 |-----------|------|------|
-| GitHub | Team (free via Nonprofits) | $0 |
+| GitHub | Free (Team optional, $4/user/mo) | $0 |
 | Cloudflare | **Pro** (1 domain) | ~$20 / mo |
 | Cloudflare | Workers Paid (build headroom) | $5 / mo *(optional)* |
 | **Total** | | **~$20–25 / mo (~$240–300 / yr)** |
 
-Adds the managed **WAF**, **enhanced analytics**, **faster support**, and a
-credible paid posture, while GitHub governance stays free via the nonprofit
-program.
+Adds the managed **WAF**, **enhanced analytics**, and **faster support** on top
+of GitHub's free tier (Team's governance features are an optional $4/user/mo).
 
 ---
 
@@ -187,34 +188,37 @@ Domain **registration** (the annual fee to own the name) is separate from
 **hosting** (serving the site) and **DNS** (routing the name). They can live in
 different places or be consolidated.
 
-**Current situation:** the domain is billed at about **$224/year** (American
-Domain Services). That is roughly 15 to 20 times the market rate; a .org normally
-costs $8 to $15 per year.
+**Current situation (verified by WHOIS):** the domain is registered with
+**BlueHost**, the same vendor as the current hosting. Its real cost is BlueHost's
+domain renewal (roughly $18 to $22/year for a .com).
 
-> **Caution:** a $224 renewal from an unfamiliar name has the hallmarks of the
-> well-known domain-renewal solicitation scam (official-looking invoices from
-> third-party "listing services," not your real registrar). Before paying, verify
-> via a WHOIS lookup who the domain is *actually* registered with. If it is not
-> the biller, the notice can be ignored. If it is, re-home the domain promptly.
+> **Confirmed solicitation, do not pay:** a separate **$224/year invoice from
+> "American Domain Services"** is *not* from BlueHost and is not a real renewal.
+> WHOIS confirms BlueHost is the registrar, so this notice is a deceptive
+> third-party solicitation of the well-known domain-renewal scam type. It should
+> be ignored and reported, never paid. (If it has been paid in prior years, that
+> was money never owed.)
 
-**Recommendation: re-home to an at-cost registrar.** Cloudflare Registrar sells
-domains at wholesale with no markup: about **$8.50/year for .org** (~$10 for
-.com), WHOIS privacy included, and no first-year-to-renewal price jump. It
-requires the domain to use Cloudflare DNS, which this plan already does.
-Alternatives: Porkbun or Namecheap (~$10 to $15/year).
+**Recommendation: re-home to an at-cost registrar.** When moving off BlueHost,
+transfer the domain to Cloudflare Registrar, which sells at wholesale with no
+markup: about **$10/year for a .com**, WHOIS privacy included, and no
+first-year-to-renewal price jump. It requires the domain to use Cloudflare DNS,
+which this plan already does. Alternatives: Porkbun or Namecheap (~$10 to
+$15/year).
 
 ## Total cost of ownership (hosting + domain)
 
 | Scenario | Hosting | Domain | Total / year |
 |----------|---------|--------|--------------|
-| **Today** (BlueHost + $224 domain) | ~$108 | ~$224 | **~$332** |
-| **Proposed, Lean** (Cloudflare Free + at-cost domain) | $0 | ~$10 | **~$10** |
-| **Proposed, Controlled Paid** (Cloudflare Pro + at-cost domain) | ~$240 | ~$10 | **~$250** |
+| **Today** (BlueHost hosting + BlueHost .com) | ~$108 | ~$20 | **~$128** |
+| **Proposed, Lean** (Cloudflare Free + at-cost .com) | $0 | ~$10 | **~$10** |
+| **Proposed, Controlled Paid** (Cloudflare Pro + at-cost .com) | ~$240 | ~$10 | **~$250** |
 
-Re-homing the domain alone saves about **$214/year**. Combined with static
-hosting, the fully-free path costs roughly **$10/year all-in**, and even the
-paid, supported path lands near today's spend while removing both the
-maintenance burden and the overpriced domain bill.
+The Lean path is roughly **$10/year all-in**; the paid, supported path lands near
+today's legitimate spend while removing the maintenance burden. Separately, and
+importantly, dropping the bogus **$224/year "American Domain Services" invoice**
+(see above) eliminates a recurring charge that was never legitimate in the first
+place.
 
 ---
 
@@ -227,17 +231,18 @@ maintenance burden and the overpriced domain bill.
 - **"Can we see how it's doing?"** → Pro's enhanced analytics; GitHub's history
   is a full audit trail of every change.
 - **"Are we depending on one person / a free hobby account?"** → No: accounts
-  are **institution-owned** with a second owner; GitHub Team governance
-  (required reviews) is free via the nonprofit program.
+  are **institution-owned** with a second owner, and every change is versioned in
+  Git. Branch-protection governance is available on GitHub Team ($4/user/mo) if
+  wanted.
 
 ---
 
 # Recommendation
 
-Adopt **Option B (Controlled Paid)** for launch: GitHub Team (free, nonprofit)
-for governance, and **Cloudflare Pro (~$20/mo)** for the WAF, analytics, and
-support posture. It answers the board's accountability and security questions,
-presents as a serious supported solution, and still costs the same or less than
+Adopt **Option B (Controlled Paid)** for launch: GitHub Free (repo + editor
+backend), and **Cloudflare Pro (~$20/mo)** for the WAF, analytics, and support
+posture. It answers the board's accountability and security questions, presents
+as a serious supported solution, and still costs the same or less than
 BlueHost/WordPress, with a fraction of the upkeep. Downgrading to the fully-free
 Option A later is a one-click change with no migration.
 
