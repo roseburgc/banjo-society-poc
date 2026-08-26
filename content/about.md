@@ -18,6 +18,11 @@ skin-headed lutes had been played for centuries. In the 19th century the
 instrument took the fretless, open-backed form that would become central to
 Appalachian string-band music.
 
+<figure class="bw portrait">
+  <img src="/images/portrait-placeholder.svg" alt="Portrait of Dock Boggs (placeholder)">
+  <figcaption><cite>Dock Boggs</cite>, Appalachian banjoist and singer (1898–1971). <em>Placeholder image — replace with a public-domain photo (e.g., Library of Congress or Smithsonian Folkways).</em></figcaption>
+</figure>
+
 Unlike the three-finger "bluegrass" roll popularized in the 1940s, **old-time
 banjo** is played in a downward-striking style — variously called *clawhammer*,
 *frailing*, or *rapping* — in which the back of the fingernail strikes the melody

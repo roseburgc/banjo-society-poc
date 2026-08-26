@@ -1,0 +1,21 @@
+{{- /* Responsive, privacy-friendly YouTube embed.
+       Usage: {{< videoembed id="VIDEOID" title="..." caption="..." >}}
+       With no id, renders a labeled placeholder so the layout is visible. */ -}}
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" | default "Video" -}}
+<div class="embed">
+{{- if $id }}
+  <div class="embed-frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}" title="{{ $title }}"
+      loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+{{- else }}
+  <div class="embed-placeholder">
+    <div><strong>{{ $title }}</strong><span>Video embed placeholder — add a YouTube video ID to go live.</span></div>
+  </div>
+{{- end }}
+{{- with .Get "caption" }}
+  <p class="embed-cap">{{ . }}</p>
+{{- end }}
+</div>

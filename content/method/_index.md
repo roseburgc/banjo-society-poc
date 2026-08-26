@@ -30,3 +30,10 @@ downward strike your hand learns quickly, then refines for a lifetime.
 Start with two or three simple tunes, play them slowly until the bum-ditty is
 automatic, then find other players. Old-time is social music — it lives in the
 jam, not the practice room.
+
+## See it played
+
+Nothing teaches the clawhammer feel like watching a master. Below, the great
+Tommy Jarrell (1901–1985) plays "Sweet Sunny South."
+
+{{< videoembed title="Tommy Jarrell — &ldquo;Sweet Sunny South&rdquo;" caption="Placeholder — add the YouTube video ID to embed the performance." >}}
