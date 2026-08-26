@@ -51,7 +51,9 @@ criteria (the "done" checkpoint) that gates the next phase.
   HTTrack).
 - Record the existing URL structure (to preserve or redirect for SEO).
 - Collect all assets (images, documents) and the third-party donate snippet.
-- Confirm where the domain is registered (registrar login access).
+- **Verify the domain's actual registrar via WHOIS** and locate its login. Note:
+  a ~$224/yr bill from "American Domain Services" is far above market and may be a
+  renewal solicitation rather than the real registrar. Confirm before paying.
 
 **Exit criteria:** complete page list, asset archive, URL map, and confirmed
 registrar access.
@@ -101,6 +103,10 @@ documented.
 **Owner:** Administrator · **Effort:** ~0.5 day + monitoring
 
 - Move the domain's DNS to Cloudflare (update nameservers at the registrar).
+- **Transfer the domain registration to an at-cost registrar** (Cloudflare
+  Registrar, ~$8.50/yr for .org): unlock the domain at the current registrar,
+  obtain the EPP/auth code, and initiate the transfer. This ends the ~$224/yr
+  bill and consolidates DNS + registration in one place.
 - Add the custom domain in Cloudflare Pages (automatic, free SSL).
 - Add redirects (`_redirects`) for any changed URLs to preserve SEO.
 - **Lower the DNS TTL 24h ahead**, cut over, and monitor.

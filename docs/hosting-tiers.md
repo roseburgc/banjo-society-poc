@@ -117,11 +117,15 @@ it, including BlueHost or a host like Reclaim. The distinction that matters is
   compiles the site and copies the files to the host by FTP or Git. It works, but
   it is more moving parts, and you still have no global CDN.
 
+> **In every option, the GitHub repo stays.** It is the content source of truth
+> and the editor (CMS) backend; the host only changes where the built files are
+> served. Dropping GitHub would mean giving up the Git-based editing workflow.
+
 | Option | Cost | Auto-build on edit | Global CDN | Notes |
 |--------|------|--------------------|-----------|-------|
 | **Cloudflare Pages** | Free, or ~$20/mo Pro | Yes, built in | Yes | Purpose-built; recommended |
 | **GitHub Pages** | Free | Via Actions workflow | Yes | No `_redirects`; private repo needs a paid plan |
-| **Netlify** | Free, or $19/mo | Yes, built in | Yes | 100 GB/mo free bandwidth cap |
+| **Netlify** | Free (~15 GB/mo credits), or ~$15–19/member/mo | Yes, built in | Yes | Metered bandwidth + overages; built-in Forms |
 | **BlueHost** (current) | ~$9/mo renewal (~$108/yr) | No; needs Actions + FTP deploy | No | cPanel/LAMP; keeps the renewal pricing and account upkeep you are leaving |
 | **Reclaim Hosting** | ~$36/yr | Via cPanel Git or Actions | No | Education / "own your data" ethos; cheap and friendly; still no CDN or built-in pipeline |
 | **AWS S3 + CloudFront** | A few $/yr (usage) | Via Actions | Yes | Cheapest at scale, but complex AWS setup |
@@ -144,6 +148,73 @@ and CDN of a purpose-built static host.
 Reclaim's case, even attractive on cost and ethos. But the purpose-built static
 hosts remain the simplest and fastest: free or near-free, a global CDN, and the
 automatic build-on-edit pipeline that makes the editor experience seamless.
+
+## Cloudflare Pages vs. Netlify
+
+Netlify is the closest managed-host alternative and a fine choice. Cloudflare
+wins here on **cost predictability**: Cloudflare Pages has unlimited, unmetered
+bandwidth at every tier, while Netlify's free tier (changed in Sept 2025) now
+runs on a credit model of roughly 15 GB/month and meters overages, with paid
+plans billed per team member. For a low-traffic nonprofit that could see an
+occasional spike, flat and unmetered removes any surprise-bill risk. Netlify's
+built-in Forms is its main perk, but this site has no form needs, and a form
+could be added to Cloudflare in a few lines via a Worker or a free service
+(Formspree, Basin) if one were ever wanted.
+
+## The AWS option in detail
+
+Amazon S3 + CloudFront is the cheapest and most scalable option, but the
+highest-setup:
+
+- **How it works:** GitHub Actions builds the site on each push and syncs the
+  output to an S3 bucket; CloudFront serves it globally over HTTPS (certificate
+  via ACM), optionally with Route 53 for DNS.
+- **Cost:** effectively $0–1/month for a small site (AWS's always-free tier
+  covers 1 TB/month of CloudFront transfer; S3 storage is pennies). Route 53, if
+  used, is about $6/year.
+- **Trade-offs:** you assemble and maintain four-plus services (S3, CloudFront,
+  ACM, IAM, optionally Route 53) and the deploy pipeline yourself, with a larger
+  security/permissions surface and paid-only AWS support. It makes sense mainly
+  if the institution already runs on AWS.
+
+Both still use the GitHub repo as their source (see the note above).
+
+---
+
+# Domain registration (separate from hosting)
+
+Domain **registration** (the annual fee to own the name) is separate from
+**hosting** (serving the site) and **DNS** (routing the name). They can live in
+different places or be consolidated.
+
+**Current situation:** the domain is billed at about **$224/year** (American
+Domain Services). That is roughly 15 to 20 times the market rate; a .org normally
+costs $8 to $15 per year.
+
+> **Caution:** a $224 renewal from an unfamiliar name has the hallmarks of the
+> well-known domain-renewal solicitation scam (official-looking invoices from
+> third-party "listing services," not your real registrar). Before paying, verify
+> via a WHOIS lookup who the domain is *actually* registered with. If it is not
+> the biller, the notice can be ignored. If it is, re-home the domain promptly.
+
+**Recommendation: re-home to an at-cost registrar.** Cloudflare Registrar sells
+domains at wholesale with no markup: about **$8.50/year for .org** (~$10 for
+.com), WHOIS privacy included, and no first-year-to-renewal price jump. It
+requires the domain to use Cloudflare DNS, which this plan already does.
+Alternatives: Porkbun or Namecheap (~$10 to $15/year).
+
+## Total cost of ownership (hosting + domain)
+
+| Scenario | Hosting | Domain | Total / year |
+|----------|---------|--------|--------------|
+| **Today** (BlueHost + $224 domain) | ~$108 | ~$224 | **~$332** |
+| **Proposed, Lean** (Cloudflare Free + at-cost domain) | $0 | ~$10 | **~$10** |
+| **Proposed, Controlled Paid** (Cloudflare Pro + at-cost domain) | ~$240 | ~$10 | **~$250** |
+
+Re-homing the domain alone saves about **$214/year**. Combined with static
+hosting, the fully-free path costs roughly **$10/year all-in**, and even the
+paid, supported path lands near today's spend while removing both the
+maintenance burden and the overpriced domain bill.
 
 ---
 
