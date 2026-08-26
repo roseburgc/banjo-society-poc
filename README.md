@@ -45,6 +45,31 @@ provides that power in Markdown syntax and keeps the same Git-based CMS tooling.
 
 ---
 
+## What the editor can change (and what it can't)
+
+A deliberate line between **content** (editor-managed) and **structure/design**
+(developer-managed) — the guardrail WordPress lacks, where editors can break the
+layout or install conflicting plugins. Configured in `static/admin/config.yml`;
+anything you want editable is lifted out of templates into content or
+`data/settings.yaml`.
+
+**Editor-managed (via the CMS):**
+- Page text and per-page images (all six pages; rich-text or Markdown toggle)
+- **Site Settings panel** — footer/contact info, donate copy, organization name
+- **Home hero image** — upload/swap via the media library
+- **Theme colors** (accent, background, text) via color pickers → injected as CSS variables in `<head>`
+
+**Developer-managed (by design):**
+- Layouts, CSS, nav structure, the donate integration snippet
+
+**Also possible, if wanted** (not enabled here, but trivial to add): social
+links, nav-menu editing, additional page types, and — recommended for a
+non-technical handoff — **curated theme presets**: a dropdown of pre-designed,
+accessibility-checked color sets instead of open color pickers, so an editor
+can't accidentally break contrast or the brand.
+
+---
+
 ## Repository layout
 
 ```
