@@ -36,4 +36,4 @@ jam, not the practice room.
 Nothing teaches the clawhammer feel like watching a master. Below, the great
 Tommy Jarrell (1901–1985) plays "Sweet Sunny South."
 
-{{< videoembed title="Tommy Jarrell — &ldquo;Sweet Sunny South&rdquo;" caption="Placeholder — add the YouTube video ID to embed the performance." >}}
+{{< videoembed id="U1RmAkwH4BY" title="Tommy Jarrell — &ldquo;Sweet Sunny South&rdquo;" caption="Tommy Jarrell on banjo (embedded from YouTube)." >}}

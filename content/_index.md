@@ -1,7 +1,6 @@
 ---
 title: "Old-Time Banjo Society"
 description: "Preserving and teaching the old-time, clawhammer, and frailing banjo traditions."
-hero_image: /images/hero.svg
 ---
 
 Welcome to the **Old-Time Banjo Society** — a fictional nonprofit created to

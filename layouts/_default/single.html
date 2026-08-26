@@ -2,6 +2,12 @@
   <article class="prose">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ with .Params.portrait }}
+    <figure class="bw portrait">
+      <img src="{{ . | relURL }}" alt="{{ $.Params.portrait_alt | default $.Title }}">
+      {{ with $.Params.portrait_caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
     {{ .Content }}
   </article>
 {{ end }}

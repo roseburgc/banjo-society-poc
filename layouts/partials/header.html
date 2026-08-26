@@ -1,6 +1,17 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ "/" | relURL }}">🪕 {{ .Site.Title }}</a>
+    <a class="brand" href="{{ "/" | relURL }}">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="20" r="8"/>
+          <circle cx="12" cy="20" r="4.3" stroke-width="1"/>
+          <line x1="16.5" y1="15.5" x2="26" y2="6"/>
+          <line x1="15" y1="14" x2="24.5" y2="4.5"/>
+          <path d="M24 4 l4 4"/>
+        </svg>
+      </span>
+      <span>{{ .Site.Title }}</span>
+    </a>
     <nav class="site-nav">
       {{ $current := . }}
       {{ range .Site.Menus.main }}

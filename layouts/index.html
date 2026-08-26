@@ -1,6 +1,5 @@
 {{ define "main" }}
   <section class="hero">
-    {{ with .Params.hero_image }}<img class="hero-image" src="{{ . | relURL }}" alt="">{{ end }}
     <h1>{{ .Title }}</h1>
     <p class="lede">{{ .Site.Params.description }}</p>
     <p><a class="btn" href="{{ "/get-involved" | relURL }}">Become a member</a>

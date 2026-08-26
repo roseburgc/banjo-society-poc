@@ -2,6 +2,9 @@
 title: "About & History"
 description: "Who we are, and a short history of the old-time banjo."
 featured: true
+portrait: /images/dock-boggs.jpg
+portrait_alt: "Dock Boggs, Appalachian banjoist and singer"
+portrait_caption: "**Dock Boggs** (1898–1971), Appalachian banjoist and singer. Photo by [Virginia State Parks staff](https://www.flickr.com/photos/vastateparksstaff/8550790067/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)."
 ---
 
 ## Our mission
@@ -17,11 +20,6 @@ The banjo's ancestors crossed the Atlantic from West Africa, where gourd-bodied,
 skin-headed lutes had been played for centuries. In the 19th century the
 instrument took the fretless, open-backed form that would become central to
 Appalachian string-band music.
-
-<figure class="bw portrait">
-  <img src="/images/portrait-placeholder.svg" alt="Portrait of Dock Boggs (placeholder)">
-  <figcaption><cite>Dock Boggs</cite>, Appalachian banjoist and singer (1898–1971). <em>Placeholder image — replace with a public-domain photo (e.g., Library of Congress or Smithsonian Folkways).</em></figcaption>
-</figure>
 
 Unlike the three-finger "bluegrass" roll popularized in the 1940s, **old-time
 banjo** is played in a downward-striking style — variously called *clawhammer*,
